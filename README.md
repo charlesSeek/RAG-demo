@@ -2,6 +2,8 @@
 
 A simple RAG demo
 
+![Diagram](./images/1.png)
+
 ---
 
 ## 📦 Installation
