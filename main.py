@@ -42,7 +42,7 @@ def retrieve(query: str, top_k: int) -> List[str]:
     )
     return results['documents'][0]
 
-query = "哆啦A梦使用的3个秘密道具分别是什么？"
+query = "What are the key components of a modern vector database?"
 retrieved_chunks = retrieve(query, 5)
 
 def rerank(query: str, retrieved_chunks: List[str], top_k: int) -> List[str]:
@@ -61,14 +61,14 @@ load_dotenv()
 google_client = genai.Client()
 
 def generate(query: str, chunks: List[str]) -> str:
-    prompt = f"""你是一位知识助手，请根据用户的问题和下列片段生成准确的回答。
+    prompt = f"""You are a knowledge assistant. Please generate the following based on the user's question and the following snippet:
 
-用户问题: {query}
+user question: {query}
 
-相关片段:
+related phrases:
 {"\n\n".join(chunks)}
 
-请基于上述内容作答，不要编造信息。"""
+Please answer based on the above information and do not fabricate information."""
 
     print(f"{prompt}\n\n---\n")
 
